@@ -30,12 +30,12 @@ def handle(msg):
 
     print ('Got command: %s' % command)
 
-    if command == 'Hola':
+    if command == 'hi':
        bot.sendMessage(chat_id, on(11) & off (13))
        bot.sendMesagge(chat_id, 'hola')
-    elif command =='Chao':
+    elif command =='bye':
        bot.sendMessage(chat_id, off(11) & on(13))
-    elif command =='Rapanui':
+    elif command =='video':
         bot.sendMessage(chat_id, ffplay())
 
 bot = telepot.Bot('TELEGRAM_TOKEN_HERE')
