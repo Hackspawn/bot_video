@@ -1,4 +1,4 @@
-#coder :- Salman Faris
+#coder : Bruno Perelli S. (Hackspawn)
 
 import sys
 import time
@@ -15,8 +15,9 @@ def on(pin):
 def off(pin):
         GPIO.output(pin,GPIO.LOW)
         return
+# defino la función ffplay() que reproduce un video en la raspberry pi mediante os
 def ffplay():
-    os.system("ffplay " + ' -fs ' + 'M4H08482.mp4' + ' -an -autoexit')
+    os.system("ffplay " + ' -fs ' + 'video.mp4' + ' -an -autoexit')
 # to use Raspberry Pi board pin numbers
 GPIO.setmode(GPIO.BOARD)
 # set up GPIO output channel
@@ -34,10 +35,10 @@ def handle(msg):
        bot.sendMesagge(chat_id, 'hola')
     elif command =='Chao':
        bot.sendMessage(chat_id, off(11) & on(13))
-    elif command =='Rapanui':
+    elif command =='Video':
         bot.sendMessage(chat_id, ffplay())
 
-bot = telepot.Bot('1052497901:AAFsQRuH0gyjF3isYFJKiLtTPEry5-Z7DSU')
+bot = telepot.Bot('Token de Telegram')
 bot.message_loop(handle)
 print ('I am listening...')
 
